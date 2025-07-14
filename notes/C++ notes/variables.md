@@ -63,11 +63,7 @@ int a = 4, b = 5; // correct: a and b both have initializers
 int a, b = 5;     // wrong: a doesn't have its own initializer
 ```
 
-### takeaways and extras
-In modern C++, there are some cases where list-initialization does not work as expected. Because of such quirks, some experienced developers now advocate for using a mix of copy, direct, and list-initialization, depending on the circumstance.
 
-unused initialized variable give warnings with Werror these become errors (like Golang)
-we can however deal with this in version 17
 
 ```cpp
 #include <iostream>
@@ -87,3 +83,39 @@ int main()
 }
 ```
 also the compiler might optimize these out of the program
+
+### unitinitialized variables
+in c/c++ a variable that doesnt get a value will contain the value left at that adress
+- Initialized = The object is given a known value at the point of definition.
+- Assignment = The object is given a known value beyond the point of definition.
+- Uninitialized = The object has not been given a known value yet.
+not immediatley initializing is faster but only marginally so
+
+this garbage variable creates weird behaviours since we dont know whats in it this is UNDEFINED BEHAVIOR (UB)
+this is because c++ does not have a defined behavior when using an unitted var 
+Code implementing undefined behavior may exhibit _any_ of the following symptoms:
+
+- Your program produces different results every time it is run.
+- Your program consistently produces the same incorrect result.
+- Your program behaves inconsistently (sometimes produces the correct result, sometimes not).
+- Your program seems like it’s working but produces incorrect results later in the program.
+- Your program crashes, either immediately or later.
+- Your program works on some compilers but not others.
+- Your program works until you change some other seemingly unrelated code.
+
+Or, your code may actually produce the correct behavior anyway.
+
+### naming
+recommended
+- always start with a lowercase letter
+- no numbers
+- snake_case or camelCase
+- no whitespaces
+
+### takeaways and extras
+In modern C++, there are some cases where list-initialization does not work as expected. Because of such quirks, some experienced developers now advocate for using a mix of copy, direct, and list-initialization, depending on the circumstance.
+
+unused initialized variable give warnings with Werror these become errors (like Golang)
+we can however deal with this in version 17
+
+Code is read more often than it is written, so any time saved while writing the code is time that every reader, including future you, will waste while reading it. If you’re looking to write code faster, use your editor’s auto-complete feature.
