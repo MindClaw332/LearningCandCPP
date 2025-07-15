@@ -112,6 +112,7 @@ recommended
 - snake_case or camelCase
 - no whitespaces
 
+
 ### takeaways and extras
 In modern C++, there are some cases where list-initialization does not work as expected. Because of such quirks, some experienced developers now advocate for using a mix of copy, direct, and list-initialization, depending on the circumstance.
 
@@ -119,3 +120,5 @@ unused initialized variable give warnings with Werror these become errors (like 
 we can however deal with this in version 17
 
 Code is read more often than it is written, so any time saved while writing the code is time that every reader, including future you, will waste while reading it. If you’re looking to write code faster, use your editor’s auto-complete feature.
+
+VARIABLES SHOULD BE DEFINED AS CLOSE TO THEIR FIRST USE AS POSSIBLE

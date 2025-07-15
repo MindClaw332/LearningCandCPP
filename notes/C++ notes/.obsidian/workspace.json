@@ -62,9 +62,65 @@
               "icon": "lucide-file",
               "title": "literals and operators"
             }
+          },
+          {
+            "id": "d6142293e0d719f2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "summaries/CHAPTER 1.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "CHAPTER 1"
+            }
+          },
+          {
+            "id": "be47d2cfe2e4b82c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "learncpp.com notes/variables.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "variables"
+            }
+          },
+          {
+            "id": "945d594226bbd3e3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "learncpp.com notes/functions.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "functions"
+            }
+          },
+          {
+            "id": "01c212b1625f32f3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "multiple files.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "multiple files"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 7
       }
     ],
     "direction": "vertical"
@@ -137,7 +193,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "literals and operators.md",
+                "file": "summaries/CHAPTER 1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -147,7 +203,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for literals and operators"
+              "title": "Backlinks for CHAPTER 1"
             }
           },
           {
@@ -156,12 +212,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "literals and operators.md",
+                "file": "summaries/CHAPTER 1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from literals and operators"
+              "title": "Outgoing links from CHAPTER 1"
             }
           },
           {
@@ -185,13 +241,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "literals and operators.md",
+                "file": "summaries/CHAPTER 1.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of literals and operators"
+              "title": "Outline of CHAPTER 1"
             }
           }
         ]
@@ -211,12 +267,21 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "daa27063ceb60ba0",
+  "active": "01c212b1625f32f3",
   "lastOpenFiles": [
-    "variables.md",
-    "literals and operators.md",
-    "undefined behaviours.md",
-    "iostream.md",
+    "learncpp.com notes/functions.md",
+    "multiple files.md",
+    "learncpp.com notes/variables.md",
+    "learncpp.com notes/undefined behaviours.md",
+    "learncpp.com notes/literals and operators.md",
+    "learncpp.com notes/EXTRAS AND TAKEAWAYS.md",
+    "learncpp.com notes/2025-07-15-122318_hyprshot.png",
+    "outside notes/stack and heap.md",
+    "outside notes",
+    "learncpp.com notes",
+    "summaries/CHAPTER 1.md",
+    "summaries",
+    "learncpp.com notes/iostream.md",
     "Welcome.md"
   ]
 }
