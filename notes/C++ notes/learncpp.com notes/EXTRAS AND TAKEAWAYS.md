@@ -6,3 +6,6 @@ Follow DRY: “Don’t repeat yourself”. If you need to do something more than
 
 Like all best practices, DRY is meant to be a guideline, not an absolute. Reader Yariv has [noted](https://www.learncpp.com/cpp-tutorial/function-return-values-value-returning-functions/#comment-593257) that DRY can harm overall comprehension when code is broken into pieces that are too small.
 
+when we get a linker error this tends to mean cpp cant find a forward declaration and the same function
+
+a compiler one tends to mean its syntax or wrong use
