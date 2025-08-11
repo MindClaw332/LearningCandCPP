@@ -1,20 +1,18 @@
+#include <vector>
 #include <iostream>
-
-int doubleNumber(int num)
-{
-    return 2 * num;
+std::vector<int> countBy(int x,int n){
+  std::vector<int> ret;
+  int mult = 0;
+  for(int i = 0; i <= n; i++){
+    mult += x;
+    ret.push_back(mult);
+    std::cout << i << '\n';
+  }
+  return ret;
 }
 
-int getUserInput(){
-    std::cout << "enter an integer: \n";
-    int x{};
-    std::cin >> x;
-    return x;
+int main(){
+    countBy(2,10);
+    return 0;
 }
 
-int main()
-{
-    int x{getUserInput()};
-    std::cout << "your doubled number is: " << doubleNumber(x) << '\n';
-
-}
