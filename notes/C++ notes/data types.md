@@ -154,7 +154,7 @@ std::size_t
 
 Best practice
 
-If you use `std::size_t` explicitly in your code, #include one of the headers that defines `std::size_t` (we recommend <cstddef>).
+If you use `std::size_t` explicitly in your code, #include one of the headers that defines `std::size_t` (we recommend cstddef)
 
 Using `sizeof` does not require a header (even though it returns a value whose type is `std::size_t`).
 
@@ -169,3 +169,86 @@ Use the following procedure:
     - Each place you slide the decimal point to the right decreases the exponent by 1.
 - Trim off any leading zeros (on the left end of the significand)
 - Trim off any trailing zeros (on the right end of the significand) only if the original number had no decimal point. We’re assuming they’re not significant. If you have additional information to suggest they are significant, you can keep them.
+## floats
+floating point variables are variables with a fractional component
+
+|Category|C++ Type|Typical Size|
+|---|---|---|
+|floating point|float|4 bytes|
+||double|8 bytes|
+||long double|8, 12, or 16 bytes|
+`float` is almost always implemented using the 4-byte IEEE 754 single-precision format.  
+`double` is almost always implemented using the 8-byte IEEE 754 double-precision format.
+always include one decimal when intitializing a float fe 10.0
+
+| Format                                  | Range                                     | Precision                              |
+| --------------------------------------- | ----------------------------------------- | -------------------------------------- |
+| IEEE 754 single-precision (4 bytes)     | ±1.18 x 10-38 to ±3.4 x 1038 and 0.0      | 6-9 significant digits, typically 7    |
+| IEEE 754 double-precision (8 bytes)     | ±2.23 x 10-308 to ±1.80 x 10308 and 0.0   | 15-18 significant digits, typically 16 |
+| x87 extended-precision (80 bits)        | ±3.36 x 10-4932 to ±1.18 x 104932 and 0.0 | 18-21 significant digits               |
+| IEEE 754 quadruple-precision (16 bytes) | ±3.36 x 10-4932 to ±1.18 x 104932 and 0.0 | 33-36 significant digits               |
+The **precision** of a floating point type defines how many significant digits it can represent without information loss.
+
+a float has 6 to 9 digits of precision || Double values have between 15 and 18 digits of precision
+
+A floating point type can only precisely represent a certain number of significant digits. Using a value with more significant digits than the minimum may result in the value being stored inexactly. when we lose this precision this is called a rounding error
+
+std::cout can only show up to 6 -> we can change this by using `std::setprecision()` this is called an output manipulator these are in the iomanip header
+
+```cpp
+#include <iomanip> // for output manipulator std::setprecision()
+#include <iostream>
+
+int main()
+{
+    std::cout << std::setprecision(17); // show 17 digits of precision
+    std::cout << 3.33333333333333333333333333333333333333f <<'\n'; // f suffix means float
+    std::cout << 3.33333333333333333333333333333333333333 << '\n'; // no suffix means double
+
+    return 0;
+}
+```
+
+==Favor double over float unless space is at a premium, as the lack of precision in a float will often lead to inaccuracies.==
+
+it also generally recommended not to compare floating point numbers as this will in a lot of cases be incorrect
+One last note on rounding errors: mathematical operations (such as addition and multiplication) tend to make rounding errors grow. Rounding errors occur when a number can’t be stored precisely. This can happen even with simple numbers, like 0.1. Therefore, rounding errors can, and do, happen all the time. Rounding errors aren’t the exception -- they’re the norm. Never assume your floating point numbers are exact.
+
+To summarize, the two things you should remember about floating point numbers:
+
+1. Floating point numbers are useful for storing very large or very small numbers, including those with fractional components.
+2. Floating point numbers often have small rounding errors, even when the number has fewer significant digits than the precision. Many times these go unnoticed because they are so small, and because the numbers are truncated for output. However, comparisons of floating point numbers may not give the expected results. Performing mathematical operations on these values will cause the rounding errors to grow larger.
+## booleans
+booleans are values true or false which are actually represented by 0 and 1
+
+if we print bools they will print as their int value use std:boolalpha to see true or false 
+```cpp
+std::cout << std::boolalpha; 
+```
+you can actually init a bool with 0 or 1 but this is not recommended
+
+std::cin cant take true or false by default and will fail but you can use std::boolalpha to change this
+
+```cpp
+#include <iostream>
+
+int main()
+{
+	bool b{};
+	std::cout << "Enter a boolean value: ";
+
+	// Allow the user to input 'true' or 'false' for boolean values
+	// This is case-sensitive, so True or TRUE will not work
+	std::cin >> std::boolalpha;
+	std::cin >> b;
+
+	// Let's also output bool values as `true` or `false`
+	std::cout << std::boolalpha;
+	std::cout << "You entered: " << b << '\n';
+
+	return 0;
+}
+```
+
+BUT NOW YOU CANT ENTER NUMERIC VALUES BECAUSE THOSE WILL ENTER FAILURE MODE
+turn it back off with noboolalpha
