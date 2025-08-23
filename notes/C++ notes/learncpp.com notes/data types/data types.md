@@ -252,3 +252,86 @@ int main()
 
 BUT NOW YOU CANT ENTER NUMERIC VALUES BECAUSE THOSE WILL ENTER FAILURE MODE
 turn it back off with noboolalpha
+
+## char
+char data type holds a single character (integral type)
+
+| Code | Symbol                          | Code | Symbol  | Code | Symbol | Code | Symbol       |
+| ---- | ------------------------------- | ---- | ------- | ---- | ------ | ---- | ------------ |
+| 0    | NUL (null)                      | 32   | (space) | 64   | @      | 96   | `            |
+| 1    | SOH (start of header)           | 33   | !       | 65   | A      | 97   | a            |
+| 2    | STX (start of text)             | 34   | ”       | 66   | B      | 98   | b            |
+| 3    | ETX (end of text)               | 35   | #       | 67   | C      | 99   | c            |
+| 4    | EOT (end of transmission)       | 36   | $       | 68   | D      | 100  | d            |
+| 5    | ENQ (enquiry)                   | 37   | %       | 69   | E      | 101  | e            |
+| 6    | ACK (acknowledge)               | 38   | &       | 70   | F      | 102  | f            |
+| 7    | BEL (bell)                      | 39   | ’       | 71   | G      | 103  | g            |
+| 8    | BS (backspace)                  | 40   | (       | 72   | H      | 104  | h            |
+| 9    | HT (horizontal tab)             | 41   | )       | 73   | I      | 105  | i            |
+| 10   | LF (line feed/new line)         | 42   | *       | 74   | J      | 106  | j            |
+| 11   | VT (vertical tab)               | 43   | +       | 75   | K      | 107  | k            |
+| 12   | FF (form feed / new page)       | 44   | ,       | 76   | L      | 108  | l            |
+| 13   | CR (carriage return)            | 45   | -       | 77   | M      | 109  | m            |
+| 14   | SO (shift out)                  | 46   | .       | 78   | N      | 110  | n            |
+| 15   | SI (shift in)                   | 47   | /       | 79   | O      | 111  | o            |
+| 16   | DLE (data link escape)          | 48   | 0       | 80   | P      | 112  | p            |
+| 17   | DC1 (data control 1)            | 49   | 1       | 81   | Q      | 113  | q            |
+| 18   | DC2 (data control 2)            | 50   | 2       | 82   | R      | 114  | r            |
+| 19   | DC3 (data control 3)            | 51   | 3       | 83   | S      | 115  | s            |
+| 20   | DC4 (data control 4)            | 52   | 4       | 84   | T      | 116  | t            |
+| 21   | NAK (negative acknowledge)      | 53   | 5       | 85   | U      | 117  | u            |
+| 22   | SYN (synchronous idle)          | 54   | 6       | 86   | V      | 118  | v            |
+| 23   | ETB (end of transmission block) | 55   | 7       | 87   | W      | 119  | w            |
+| 24   | CAN (cancel)                    | 56   | 8       | 88   | X      | 120  | x            |
+| 25   | EM (end of medium)              | 57   | 9       | 89   | Y      | 121  | y            |
+| 26   | SUB (substitute)                | 58   | :       | 90   | Z      | 122  | z            |
+| 27   | ESC (escape)                    | 59   | ;       | 91   | [      | 123  | {            |
+| 28   | FS (file separator)             | 60   | <       | 92   | \|124  | \|   |              |
+| 29   | GS (group separator)            | 61   | =       | 93   | ]      | 125  | }            |
+| 30   | RS (record separator)           | 62   | >       | 94   | ^      | 126  | ~            |
+| 31   | US (unit separator)             | 63   | ?       | 95   | _      | 127  | DEL (delete) |
+you can initialize them with char literals like char ch{'a'} but also with an int
+std::cout always prints it as an ascii char
+```cpp
+#include <iostream>
+
+int main()
+{
+    std::cout << "Input a keyboard character: "; // assume the user enters "a b" (without quotes)
+
+    char ch{};
+    std::cin >> ch; // extracts a, leaves " b\n" in stream
+    std::cout << "You entered: " << ch << '\n';
+
+    std::cin >> ch; // skips leading whitespace (the space), extracts b, leaves "\n" in stream
+    std::cout << "You entered: " << ch << '\n';
+
+    return 0;
+}
+```
+
+an escape sequence is something that holds special meaning like \n for newline or \t for a tab
+Three other notable escape sequences are:  
+\’ prints a single quote  
+\” prints a double quote  
+`\\` prints a backslash
+
+| Name            | Symbol     | Meaning                                                                                |
+| --------------- | ---------- | -------------------------------------------------------------------------------------- |
+| Alert           | \a         | Makes an alert, such as a beep                                                         |
+| Backspace       | \b         | Moves the cursor back one space                                                        |
+| Formfeed        | \f         | Moves the cursor to next logical page                                                  |
+| Newline         | \n         | Moves cursor to next line                                                              |
+| Carriage return | \r         | Moves cursor to beginning of line                                                      |
+| Horizontal tab  | \t         | Prints a horizontal tab                                                                |
+| Vertical tab    | \v         | Prints a vertical tab                                                                  |
+| Single quote    | \’         | Prints a single quote                                                                  |
+| Double quote    | \”         | Prints a double quote                                                                  |
+| Backslash       | \\         | Prints a backslash.                                                                    |
+| Question mark   | \?         | Prints a question mark.  <br>No longer relevant. You can use question marks unescaped. |
+| Octal number    | \(number)  | Translates into char represented by octal                                              |
+| Hex number      | \x(number) | Translates into char represented by hex number                                         |
+Single characters should usually be single-quoted, not double-quoted (e.g. `'t'` or `'\n'`, not `"t"` or `"\n"`). One possible exception occurs when doing output, where it can be preferential to double quote everything for consistency
+Avoid multicharacter literals (e.g. `'56'`).
+
+`char16_t` and `char32_t` were added to C++11 to provide explicit support for 16-bit and 32-bit Unicode characters. These char types have the same size as `std::uint_least16_t` and `std::uint_least32_t` respectively (but are distinct types). `char8_t` was added in C++20 to provide support for 8-bit Unicode (UTF-8). It is a distinct type that uses the same representation as `unsigned char`.
